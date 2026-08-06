@@ -2,10 +2,10 @@ import { ImageIcon } from 'lucide-react'
 
 export default function ProductImage({ src, color = '#e5e7eb', alt = '', className = '', fit = 'contain' }) {
   if (src) {
-    const fitClass = fit === 'cover' ? 'object-cover' : 'object-contain'
+    const fitClass = fit === 'cover' ? 'h-full w-full object-cover' : 'max-h-full max-w-full object-contain'
     return (
       <div className={`flex items-center justify-center overflow-hidden rounded-md ${className}`} style={{ backgroundColor: color }}>
-        <img src={src} alt={alt} className={`w-full h-full ${fitClass}`} />
+        <img src={src} alt={alt} className={fitClass} />
       </div>
     )
   }

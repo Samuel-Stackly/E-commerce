@@ -15,15 +15,15 @@ export default function ProductCard({ product }) {
   const wishlisted = isWishlisted(id)
 
   return (
-    <div className="relative bg-white dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-800 p-4 hover:shadow-md transition-shadow">
+    <div className="relative flex h-full flex-col rounded-lg border border-gray-100 bg-white p-5 transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
       {badge && (
-        <span className="absolute top-3 left-3 z-10 bg-brand text-white text-[11px] font-semibold px-2 py-1 rounded">
+        <span className="absolute top-4 left-4 z-10 rounded bg-brand px-2 py-1 text-[11px] font-semibold text-white">
           {badge}
         </span>
       )}
       <button
         onClick={() => toggleWishlist(product)}
-        className={`absolute top-3 right-3 z-10 transition-colors ${
+        className={`absolute top-4 right-4 z-10 transition-colors ${
           wishlisted ? 'text-red-500' : 'text-gray-300 hover:text-red-400'
         }`}
         aria-label="Toggle wishlist"
@@ -31,8 +31,13 @@ export default function ProductCard({ product }) {
         <Heart size={18} fill={wishlisted ? 'currentColor' : 'none'} />
       </button>
 
-      <Link to={`/shop/product-details/${id}`}>
-        <ProductImage src={img} alt={name} color={color} className="w-full h-32 mb-3" />
+      <Link to={`/shop/product-details/${id}`} className="mb-4 block">
+        <ProductImage
+          src={img}
+          alt={name}
+          color={color}
+          className="h-44 w-full p-4 sm:h-48"
+        />
       </Link>
 
       {reviews && <p className="text-[11px] text-gray-400 mb-1">({reviews})</p>}

@@ -1,4 +1,4 @@
-import ProductImage from './ProductImage.jsx'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const tiles = [
   {
@@ -37,37 +37,59 @@ const tiles = [
 
 export default function BrandNewForYou() {
   return (
-    <div className="w-full max-w-[1360px] mx-auto px-4 py-6">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-gray-900 text-lg uppercase tracking-wide">Brand New For You</h3>
-        <div className="flex items-center space-x-2 bg-gray-100 px-2.5 py-1 rounded-full text-xs font-semibold text-gray-600">
-          <span>prev</span>
-          <span className="text-gray-300">/</span>
-          <span>next</span>
+    <div className="mx-auto w-full max-w-[1360px] px-4 py-6">
+      <div className="mb-6 flex items-center justify-between">
+        <h3 className="text-lg font-bold uppercase tracking-wide text-gray-900">Brand New For You</h3>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Previous"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 transition hover:border-[#1ABA1A] hover:text-[#1ABA1A]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 transition hover:border-[#1ABA1A] hover:text-[#1ABA1A]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-7">
         {tiles.map((t, i) => (
-          <div key={i} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-            <div className="relative p-4 pb-0">
+          <div
+            key={i}
+            className="flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+          >
+            <div className="relative p-6 pb-2">
               {t.badge && (
-                <span className="absolute top-6 right-6 z-10 bg-black text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider">
+                <span className="absolute right-8 top-8 z-10 rounded-md bg-black px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
                   {t.badge}
                 </span>
               )}
-              <div 
-                className="rounded-xl overflow-hidden flex items-center justify-center"
-                style={{ backgroundColor: t.bg, height: '220px' }}
+              <div
+                className="flex items-center justify-center overflow-hidden rounded-xl p-4"
+                style={{ backgroundColor: t.bg, height: '280px' }}
               >
-                <img src={t.img} alt={t.title} className="w-full h-full object-cover" />
+                <img
+                  src={t.img}
+                  alt={t.title}
+                  className="h-full w-full rounded-lg object-cover"
+                />
               </div>
             </div>
-            <div className="p-5 flex flex-col justify-between flex-1">
+
+            <div className="flex flex-1 flex-col justify-between px-6 pb-7 pt-4">
               <div>
-                <p className="text-sm font-bold text-gray-900 leading-snug mb-1 line-clamp-2">{t.title}</p>
-                <p className="text-xs text-gray-500 mb-4 line-clamp-2">{t.subtitle}</p>
+                <p className="mb-2 line-clamp-2 text-base font-bold leading-snug text-gray-900">
+                  {t.title}
+                </p>
+                <p className="mb-5 line-clamp-2 text-sm text-gray-500">{t.subtitle}</p>
               </div>
-              <button className="w-fit text-xs font-bold border border-[#1ABA1A] text-[#1ABA1A] rounded-lg px-4 py-2 hover:bg-[#1ABA1A] hover:text-white transition-colors uppercase tracking-wider">
+              <button className="w-fit rounded-lg border border-[#1ABA1A] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-[#1ABA1A] transition-colors hover:bg-[#1ABA1A] hover:text-white">
                 {t.cta}
               </button>
             </div>
