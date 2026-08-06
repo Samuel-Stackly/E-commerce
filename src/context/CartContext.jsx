@@ -16,7 +16,6 @@ function loadCart() {
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(loadCart)
-  const [isCartOpen, setIsCartOpen] = useState(false)
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
@@ -32,7 +31,6 @@ export function CartProvider({ children }) {
       }
       return [...prev, { ...product, quantity: qty }]
     })
-    setIsCartOpen(true)
   }
 
   const removeFromCart = (id) => {
@@ -52,9 +50,6 @@ export function CartProvider({ children }) {
 
   const clearCart = () => setItems([])
 
-  const openCart = () => setIsCartOpen(true)
-  const closeCart = () => setIsCartOpen(false)
-
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0)
   const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
 
@@ -69,9 +64,6 @@ export function CartProvider({ children }) {
         clearCart,
         totalItems,
         subtotal,
-        isCartOpen,
-        openCart,
-        closeCart,
       }}
     >
       {children}

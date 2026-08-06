@@ -14,7 +14,6 @@ import Cart from './pages/Cart.jsx'
 import Profile from './pages/Profile.jsx'
 import Contact from './pages/Contact.jsx'
 import Checkout from './pages/Checkout.jsx'
-import MiniCartDrawer from './components/MiniCartDrawer.jsx'
 import SingleProductPage from './pages/SingleProductPage.jsx'
 import SingleProductPay from './pages/SingleProductpay.jsx'
 
@@ -43,7 +42,6 @@ export default function App() {
       </main>
 
       <Footer />
-      <MiniCartDrawer />
     </div>
   )
 }

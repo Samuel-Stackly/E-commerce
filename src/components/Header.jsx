@@ -274,7 +274,7 @@ function Nav() {
 }
 
 export default function Header() {
-  const { totalItems, openCart } = useCart()
+  const { totalItems } = useCart()
   const { count: wishlistCount } = useWishlist()
   const { user, isAuthenticated, logout } = useAuth()
   const navigate = useNavigate()
@@ -409,7 +409,7 @@ export default function Header() {
             )}
           </div>
 
-          <IconButton badge={totalItems || undefined} onClick={openCart}>
+          <IconButton to="/pages/cart" badge={totalItems || undefined}>
             <ShoppingCart className="h-5 w-5" fill="currentColor" />
           </IconButton>
         </div>
