@@ -35,24 +35,24 @@ export default function HeroSection() {
 
         {/* Side cards */}
         <div className="flex min-w-0 flex-col gap-4">
-          <div className="flex min-h-[180px] flex-1 items-center rounded-[10px] border border-gray-200 bg-white p-5 lg:min-h-0">
-            <ProductImage
-              src="/assets/watch.png"
-              alt="Watch"
-              color="#f3f4f6"
-              className="h-[120px] w-[120px] shrink-0 object-contain sm:h-[150px] sm:w-[150px]"
-            />
+          <div
+            className="relative min-h-[180px] flex-1 overflow-hidden rounded-[10px] bg-[#f3f4f6] bg-cover bg-center bg-no-repeat lg:min-h-0"
+            style={{ backgroundImage: "url('/assets/watch.png')" }}
+            role="img"
+            aria-label="Sport Water Resistance Watch"
+          >
+            <div className="relative z-10 flex h-full min-h-[180px] items-center justify-end p-5 lg:min-h-full">
+              <div className="max-w-[150px] rounded-md bg-white/80 p-3 text-right backdrop-blur-[2px]">
+                <h3 className="text-lg font-semibold leading-7 text-[#1F2937] sm:text-[20px]">
+                  Sport Water
+                  <br />
+                  Resistance Watch
+                </h3>
 
-            <div className="ml-4 min-w-0">
-              <h3 className="text-lg font-semibold leading-7 text-[#1F2937] sm:text-[20px]">
-                Sport Water
-                <br />
-                Resistance Watch
-              </h3>
-
-              <button className="mt-4 rounded-md bg-[#333333] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#222222]">
-                SHOP NOW
-              </button>
+                <button className="mt-4 rounded-md bg-[#333333] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#222222]">
+                  SHOP NOW
+                </button>
+              </div>
             </div>
           </div>
 
