@@ -65,10 +65,41 @@ function DropdownLink({ label, path, active, onClick }) {
   )
 }
 
+function ThemeSlider() {
+  const { isDark, toggleTheme } = useTheme()
+
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={isDark}
+      aria-label="Toggle dark mode"
+      onClick={toggleTheme}
+      className="flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#18b918]/40 rounded-full"
+    >
+      <span
+        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors duration-300 ${
+          isDark ? 'bg-gray-700' : 'bg-gray-200'
+        }`}
+      >
+        <span
+          className={`absolute left-0.5 top-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform duration-300 ${
+            isDark ? 'translate-x-5' : 'translate-x-0'
+          }`}
+        />
+      </span>
+      {isDark ? (
+        <Moon className="h-4 w-4 text-gray-700 dark:text-gray-200" />
+      ) : (
+        <Sun className="h-4 w-4 text-amber-500" />
+      )}
+    </button>
+  )
+}
+
 function TopBar() {
   const [currency, setCurrency] = useState('USD')
   const [language, setLanguage] = useState(languages[0])
-  const { isDark, toggleTheme } = useTheme()
 
   return (
     <div className="hidden items-center justify-between border-b border-gray-100 dark:border-gray-800 px-4 py-2 text-sm md:flex lg:px-0">
@@ -86,15 +117,6 @@ function TopBar() {
         <a href="#" className="hover:text-gray-900 dark:hover:text-white">
           Order Tracking
         </a>
-
-        <button
-          onClick={toggleTheme}
-          aria-label="Toggle dark mode"
-          className="flex items-center gap-1.5 rounded-full border border-gray-200 dark:border-gray-700 px-3 py-1 hover:text-gray-900 dark:hover:text-white"
-        >
-          {isDark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-          {isDark ? 'Light' : 'Dark'}
-        </button>
 
         <Dropdown
           align="right"
@@ -255,7 +277,6 @@ export default function Header() {
   const { totalItems, subtotal, openCart } = useCart()
   const { count: wishlistCount } = useWishlist()
   const { user, isAuthenticated, logout } = useAuth()
-  const { isDark, toggleTheme } = useTheme()
   const navigate = useNavigate()
   const [mobileQuery, setMobileQuery] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -306,7 +327,7 @@ export default function Header() {
 
         <div className="flex items-center gap-3 lg:gap-6">
           <div className="hidden items-center gap-3 sm:flex">
-          
+            <ThemeSlider />
             <IconButton to="/pages/wishlist" badge={wishlistCount || undefined}>
               <Heart className="h-5 w-5" />
             </IconButton>
@@ -315,6 +336,7 @@ export default function Header() {
             </IconButton>
           </div>
           <div className="flex items-center gap-3 sm:hidden">
+            <ThemeSlider />
             <IconButton to="/pages/wishlist" badge={wishlistCount || undefined}>
               <Heart className="h-5 w-5" />
             </IconButton>
@@ -446,13 +468,12 @@ export default function Header() {
           </nav>
 
           {/* Dark mode toggle */}
-          <button
-            onClick={toggleTheme}
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-200 dark:border-gray-700 py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200"
-          >
-            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            {isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          </button>
+          <div className="flex items-center justify-between rounded-full border border-gray-200 dark:border-gray-700 px-4 py-2.5">
+            <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
+              Dark Mode
+            </span>
+            <ThemeSlider />
+          </div>
 
           {/* Auth section */}
           <div className="border-t border-gray-100 pt-4 dark:border-gray-800">
