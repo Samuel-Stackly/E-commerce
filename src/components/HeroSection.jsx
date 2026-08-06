@@ -2,123 +2,120 @@ import ProductImage from "./ProductImage";
 
 export default function HeroSection() {
   return (
-    <div className="grid lg:grid-cols-[650px_325px] gap-6">
-      {/* Main Hero */}
-      <div className="relative w-[650px] h-[446px] rounded-2xl overflow-hidden bg-[#A9ABB5]">
-       <div className="absolute left-10 top-12 z-10 max-w-[260px] text-white">
-  <h2 className="text-[42px] font-extrabold leading-[48px]">
-    Noise Cancelling
-    <br />
-    Headphone
-  </h2>
+    <div className="flex w-full min-w-0 flex-col gap-4 lg:gap-6">
+      <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-6">
+        {/* Main Hero */}
+        <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#A9ABB5] sm:min-h-[400px] lg:min-h-[446px]">
+          <div className="absolute left-6 top-8 z-10 max-w-[240px] text-white sm:left-10 sm:top-12 sm:max-w-[260px]">
+            <h2 className="text-3xl font-extrabold leading-tight sm:text-[42px] sm:leading-[48px]">
+              Noise Cancelling
+              <br />
+              Headphone
+            </h2>
 
-  <p className="mt-5 text-[15px] leading-6">
-    Sono Over-Ear Headphone with Voice Assistant,
-    Low Latency Game Mode
-  </p>
+            <p className="mt-4 text-sm leading-6 sm:mt-5 sm:text-[15px]">
+              Sono Over-Ear Headphone with Voice Assistant,
+              Low Latency Game Mode
+            </p>
 
-  <button className="mt-8 bg-white text-black px-7 py-3 rounded-md font-semibold hover:bg-gray-100 transition">
-    BUY NOW
-  </button>
-</div>
-         
-       <img
-  src="/assets/headphone.png"
-  alt="Headphone"
-  className="absolute right-0 bottom-0 w-[650px] h-[310px] object-contain"
-/>
-        <span className="absolute bottom-6 right-6 bg-white/80 px-3 py-1 rounded text-sm">
-          3 / 3
-        </span>
+            <button className="mt-6 rounded-md bg-white px-7 py-3 font-semibold text-black transition hover:bg-gray-100 sm:mt-8">
+              BUY NOW
+            </button>
+          </div>
+
+          <img
+            src="/assets/headphone.png"
+            alt="Headphone"
+            className="absolute bottom-0 right-0 h-[55%] w-auto max-w-[70%] object-contain sm:h-[310px] sm:max-w-none sm:w-[70%]"
+          />
+          <span className="absolute bottom-4 right-4 rounded bg-white/80 px-3 py-1 text-sm sm:bottom-6 sm:right-6">
+            3 / 3
+          </span>
+        </div>
+
+        {/* Side cards */}
+        <div className="flex min-w-0 flex-col gap-4">
+          <div className="flex min-h-[180px] flex-1 items-center rounded-[10px] border border-gray-200 bg-white p-5 lg:min-h-0">
+            <ProductImage
+              src="/assets/watch.png"
+              alt="Watch"
+              color="#f3f4f6"
+              className="h-[120px] w-[120px] shrink-0 object-contain sm:h-[150px] sm:w-[150px]"
+            />
+
+            <div className="ml-4 min-w-0">
+              <h3 className="text-lg font-semibold leading-7 text-[#1F2937] sm:text-[20px]">
+                Sport Water
+                <br />
+                Resistance Watch
+              </h3>
+
+              <button className="mt-4 rounded-md bg-[#333333] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#222222]">
+                SHOP NOW
+              </button>
+            </div>
+          </div>
+
+          <div className="relative min-h-[180px] flex-1 overflow-hidden rounded-[10px] bg-[#1F2937] p-5 lg:min-h-0">
+            <h3 className="text-lg font-bold text-white">
+              OKODO
+              <br />
+              HERO 11+
+              <br />
+              BLACK
+            </h3>
+            <div className="mt-4 inline-block">
+              <p className="text-[14px] uppercase tracking-wider text-gray-400">
+                FROM
+              </p>
+              <p className="text-[30px] font-bold leading-none text-[#1ABA1A]">
+                $169
+              </p>
+            </div>
+            <ProductImage
+              src="/assets/cam.png"
+              alt="Camera"
+              color="#1F2937"
+              className="absolute bottom-0 right-0 h-[120px] w-[160px] object-contain sm:h-[150px] sm:w-[220px]"
+            />
+          </div>
+        </div>
       </div>
 
-     <div className="w-[325px] h-[446px] flex flex-col gap-4">
-  {/* Watch Card */}
-  <div className="w-full h-[215px] bg-white rounded-[10px] border border-gray-200 p-5 flex items-center">
-    <ProductImage
-      src="/assets/watch.png"
-      alt="Watch"
-      color="#f3f4f6"
-      className="w-[150px] h-[150px] object-contain"
-    />
-
-    <div className="ml-4">
-      <h3 className="text-[20px] font-semibold leading-7 text-[#1F2937]">
-        Sport Water
-        <br />
-        Resistance Watch
-      </h3>
-
-      <button className="mt-4 bg-[#333333] text-white text-sm font-semibold px-5 py-2 rounded-md hover:bg-[#222222] transition">
-  SHOP NOW
-</button>
-    </div>
-  </div>
-
-  {/* Camera Card */}
-  <div className="w-full h-[215px] bg-[#1F2937] rounded-[10px] p-5 relative overflow-hidden">
-    <h3 className="text-white text-lg font-bold">
-     OKODO
-      <br />
-      HERO 11+
-      <br />
-      BLACK
-      </h3>
-  <div className="mt-4 inline-block">
-  <p className="text-[14px] uppercase tracking-wider text-gray-400">
-    FROM
-  </p>
-
-  <p className="text-[30px] font-bold leading-none text-[#1ABA1A]">
-    $169
-  </p>
-</div>
-    <ProductImage
-      src="/assets/cam.png"
-      alt="Camera"
-      color="#1F2937"
-      className="absolute right-0 bottom-0 w-[220px] h-[150px] object-contain"
-    />
-  </div>
-</div>
-
-            
-
-      
       {/* Bottom Cards */}
-      <div className="grid grid-cols-2 gap-6 w-[650px]">
-        <div className="bg-white rounded-2xl border p-5 flex items-center gap-4">
+      <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
+        <div className="flex items-center gap-4 rounded-2xl border bg-white p-5">
           <ProductImage
             src="/assets/pg.png"
             alt="PlayGo"
             color="#f3f4f6"
-            className="w-20 h-20"
+            className="h-20 w-20 shrink-0"
           />
 
-          <div>
+          <div className="min-w-0">
             <h3 className="font-semibold">Sono Playgo 5</h3>
-            <p className="text-gray-500 text-sm">from $569</p>
+            <p className="text-sm text-gray-500">from $569</p>
 
-            <button className="text-blue-600 text-sm font-semibold mt-2">
+            <button className="mt-2 text-sm font-semibold text-blue-600">
               DISCOVER NOW
             </button>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border p-5 flex items-center gap-4">
+        <div className="flex items-center gap-4 rounded-2xl border bg-white p-5">
           <ProductImage
             src="/assets/keybord.png"
             alt="Keyboard"
             color="#f3f4f6"
-            className="w-20 h-20"
+            className="h-20 w-20 shrink-0"
           />
 
-          <div>
+          <div className="min-w-0">
             <h3 className="font-semibold">
               Logitech Bluetooth Keyboard
             </h3>
 
-            <button className="text-blue-600 text-sm font-semibold mt-2">
+            <button className="mt-2 text-sm font-semibold text-blue-600">
               Best for device
             </button>
           </div>

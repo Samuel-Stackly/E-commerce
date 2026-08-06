@@ -14,13 +14,13 @@ import { bestSeller, cellphones, laptops } from '../data/products.js'
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+    <div className="mx-auto w-full max-w-[1300px] min-w-0 space-y-6 overflow-x-hidden px-4 py-6">
       {/* Sidebar + hero */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-1 hidden lg:block">
+      <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-4">
+        <div className="hidden min-w-0 lg:col-span-1 lg:block">
           <CategorySidebar />
         </div>
-        <div className="lg:col-span-3">
+        <div className="min-w-0 lg:col-span-3">
           <HeroSection />
         </div>
       </div>
@@ -64,6 +64,6 @@ export default function Home() {
       <PromoStrip />
       <RecentlyViewed />
       <AboutSwoo />
-    </main>
+    </div>
   )
 }

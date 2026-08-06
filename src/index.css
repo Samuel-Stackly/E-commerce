@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
 .line-clamp-2 {
