@@ -29,11 +29,11 @@ export default function CategorySearchBar() {
       style={{ width: '100%', maxWidth: 1300 }}
     >
       {/* Search pill */}
-      <form onSubmit={submit} className="flex w-full max-w-[520px] items-center rounded-full bg-white pr-1 relative">
+      <form onSubmit={submit} className="relative flex w-full max-w-[520px] items-stretch overflow-hidden rounded-full bg-white">
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="flex shrink-0 items-center gap-1.5 border-r border-gray-200 px-5 py-3 text-sm font-semibold text-gray-900"
+          className="flex shrink-0 items-center gap-1.5 border-r border-gray-200 px-5 text-sm font-semibold text-gray-900"
         >
           {category}
           <ChevronDown className="h-4 w-4 text-gray-400" />
@@ -78,9 +78,9 @@ export default function CategorySearchBar() {
         <button
           type="submit"
           aria-label="Search"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-black text-white transition hover:bg-gray-800"
+          className="flex shrink-0 items-center justify-center bg-[#16a316] px-4 text-white transition hover:bg-[#128a12]"
         >
-          <Search className="h-4 w-4" />
+          <Search className="h-4 w-4" strokeWidth={2.5} />
         </button>
       </form>
 

@@ -274,7 +274,7 @@ function Nav() {
 }
 
 export default function Header() {
-  const { totalItems, subtotal, openCart } = useCart()
+  const { totalItems, openCart } = useCart()
   const { count: wishlistCount } = useWishlist()
   const { user, isAuthenticated, logout } = useAuth()
   const navigate = useNavigate()
@@ -409,17 +409,9 @@ export default function Header() {
             )}
           </div>
 
-          <div className="flex items-center gap-3">
-            <IconButton badge={totalItems || undefined} onClick={openCart}>
-              <ShoppingCart className="h-5 w-5" />
-            </IconButton>
-            <div className="hidden leading-tight sm:block">
-              <p className="text-xs font-medium uppercase tracking-wide text-gray-400">
-                Cart
-              </p>
-              <p className="text-sm font-bold text-gray-900 dark:text-white">${subtotal.toFixed(2)}</p>
-            </div>
-          </div>
+          <IconButton badge={totalItems || undefined} onClick={openCart}>
+            <ShoppingCart className="h-5 w-5" fill="currentColor" />
+          </IconButton>
         </div>
       </div>
 
