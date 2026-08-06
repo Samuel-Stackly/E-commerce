@@ -15,7 +15,7 @@ const pagesLinks = [
   { label: 'Wishlist', path: '/pages/wishlist' },
   { label: 'Profile', path: '/pages/profile', active: true },
   { label: 'Checkout', path: '/pages/checkout' },
-  { label: 'About', path: '/pages/about' },
+  { label: 'About', path: '/pages/About' },
 ]
 
 
@@ -185,22 +185,34 @@ function TopBar() {
   )
 }
 
-function IconButton({ children, badge, to, onClick }) {
-  const comp = (
-    <button
-      onClick={onClick}
-      className="relative flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 transition hover:bg-gray-200 dark:hover:bg-gray-700"
-    >
+function IconButton({ children, badge, to, onClick, 'aria-label': ariaLabel }) {
+  const className =
+    'relative flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 transition hover:bg-gray-200 dark:hover:bg-gray-700'
+
+  const content = (
+    <>
       {children}
       {!!badge && (
         <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#18b918] text-[11px] font-semibold text-white">
           {badge}
         </span>
       )}
-    </button>
+    </>
   )
 
-  return to ? <NavLink to={to}>{comp}</NavLink> : comp
+  if (to) {
+    return (
+      <NavLink to={to} aria-label={ariaLabel} className={className}>
+        {content}
+      </NavLink>
+    )
+  }
+
+  return (
+    <button type="button" onClick={onClick} aria-label={ariaLabel} className={className}>
+      {content}
+    </button>
+  )
 }
 
 function NavDropdown({ label, links, width = 'w-48' }) {
@@ -328,19 +340,19 @@ export default function Header() {
         <div className="flex items-center gap-3 lg:gap-6">
           <div className="hidden items-center gap-3 sm:flex">
             <ThemeSlider />
-            <IconButton to="/pages/wishlist" badge={wishlistCount || undefined}>
+            <IconButton to="/pages/wishlist" badge={wishlistCount || undefined} aria-label="Wishlist">
               <Heart className="h-5 w-5" />
             </IconButton>
-            <IconButton to="/pages/profile">
+            <IconButton to="/pages/profile" aria-label="Profile">
               <User2 className="h-5 w-5" />
             </IconButton>
           </div>
           <div className="flex items-center gap-3 sm:hidden">
             <ThemeSlider />
-            <IconButton to="/pages/wishlist" badge={wishlistCount || undefined}>
+            <IconButton to="/pages/wishlist" badge={wishlistCount || undefined} aria-label="Wishlist">
               <Heart className="h-5 w-5" />
             </IconButton>
-            <IconButton to="/pages/profile">
+            <IconButton to="/pages/profile" aria-label="Profile">
               <User2 className="h-5 w-5" />
             </IconButton>
           </div>
@@ -409,7 +421,7 @@ export default function Header() {
             )}
           </div>
 
-          <IconButton to="/pages/cart" badge={totalItems || undefined}>
+          <IconButton to="/pages/cart" badge={totalItems || undefined} aria-label="Cart">
             <ShoppingCart className="h-5 w-5" fill="currentColor" />
           </IconButton>
         </div>
