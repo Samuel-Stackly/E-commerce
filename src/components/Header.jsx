@@ -9,13 +9,8 @@ import { useTheme } from '../context/ThemeContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 
 const pagesLinks = [
-  { label: 'Login', path: '/pages/login' },
-  { label: 'Register', path: '/pages/register' },
-  { label: 'Cart', path: '/pages/cart' },
-  { label: 'Wishlist', path: '/pages/wishlist' },
-  { label: 'Profile', path: '/pages/profile', active: true },
-  { label: 'Checkout', path: '/pages/checkout' },
   { label: 'About', path: '/pages/About' },
+  { label: 'Contact', path: '/shop/contact' },
 ]
 
 
@@ -274,13 +269,6 @@ function Nav() {
           ))
         }
       </Dropdown>
-
-      <NavLink
-        to="/shop/contact"
-        className="text-sm font-semibold tracking-wide text-gray-900 dark:text-white hover:text-[#18b918]"
-      >
-        CONTACT
-      </NavLink>
     </nav>
   )
 }
@@ -450,9 +438,6 @@ export default function Header() {
             </NavLink>
             <NavLink to="/pages/products" onClick={closeMobileMenu} className="py-3">
               Products
-            </NavLink>
-            <NavLink to="/shop/contact" onClick={closeMobileMenu} className="py-3">
-              Contact
             </NavLink>
             <div className="py-3">
               <p className="mb-2 text-xs font-bold uppercase tracking-wide text-gray-400">Pages</p>
